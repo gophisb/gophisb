@@ -70,7 +70,7 @@
     <div class="gold-glow bottom-[200px] left-[-100px]"></div>
 
     <div class="bg-gradient-to-r from-gold-700 via-gold-500 to-gold-700 text-royal-dark text-center py-2 px-4 text-xs md:text-sm font-black tracking-wide shadow-xl relative z-50">
-        <i class="fa-solid fa-crown ml-1.5 animate-bounce"></i> إصدار محدود • التوصيل متوفر لكافة البلديات والولايات الـ 69 جزائرية <i class="fa-solid fa-truck-clock mr-1.5"></i>
+        <i class="fa-solid fa-crown ml-1.5 animate-bounce"></i> إصدار محدود • التوصيل متوفر لكافة البلديات والولايات الجزائرية <i class="fa-solid fa-truck-clock mr-1.5"></i>
     </div>
 
     <header class="border-b border-royal-border/60 glass-panel sticky top-0 z-50 transition-all duration-300">
@@ -248,7 +248,7 @@
 
     <footer class="border-t border-royal-border/50 mt-10 py-6 text-center">
         <p class="text-xs text-gray-600">&copy; 2026 عسل هود - Hood Honey. جميع الحقوق محفوظة برمجياً وتجارياً.</p>
-        <p class="text-[10px] text-gray-700 mt-1">واجهة براند فاخرة مخصصة لعمليات التجارة الإلكترونية المحترفة عبر الـ 69 ولاية جزائرية.</p>
+        <p class="text-[10px] text-gray-700 mt-1">واجهة براند فاخرة مخصصة لعمليات التجارة الإلكترونية المحترفة عبر الولايات الجزائرية.</p>
     </footer>
 
     <script>
@@ -259,33 +259,33 @@
                 totalCost: 4500,
                 formData: { name: '', phone: '', wilayaKey: '', address: '' },
                 wilayas: {
-                    main: {
-                        algiers: { name: "16 - الجزائر العاصمة", code: "Algiers", cost: 350 },
-                        blida: { name: "09 - البليدة", code: "Blida", cost: 400 },
-                        oran: { name: "31 - وهران", code: "Oran", cost: 400 },
-                        constantine: { name: "25 - قسنطينة", code: "Constantine", cost: 400 },
-                        annaba: { name: "23 - عنابة", code: "Annaba", cost: 400 }
-                    },
-                    others: {
-                        chlef: { name: "02 - الشلف", code: "Chlef", cost: 500 },
-                        laghouat: { name: "03 - الأغواط", code: "Laghouat", cost: 550 },
-                        djelfa: { name: "17 - الجلفة", code: "Djelfa", cost: 500 },
-                        mascara: { name: "29 - معسكر", code: "Mascara", cost: 500 },
-                        setif: { name: "19 - سطيف", code: "Sétif", cost: 450 },
-                        ouled_djellal: { name: "61 - أولاد جلال (مستحدثة)", code: "Ouled Djellal", cost: 550 },
-                        touggourt: { name: "65 - تقرت (مستحدثة)", code: "Touggourt", cost: 600 },
-                        djanet: { name: "66 - جانت (حدودية)", code: "Djanet", cost: 750 },
-                        bou_saada: { name: "69 - بوسعادة (مستحدثة جديدة)", code: "Bou Saâda", cost: 500 }
-                    }
+                    algiers: { name: "16 - الجزائر العاصمة", cost: 350 },
+                    blida: { name: "09 - البليدة", cost: 400 },
+                    oran: { name: "31 - وهران", cost: 400 },
+                    constantine: { name: "25 - قسنطينة", cost: 400 },
+                    annaba: { name: "23 - عنابة", cost: 400 },
+                    chlef: { name: "02 - الشلف", cost: 500 },
+                    laghouat: { name: "03 - الأغواط", cost: 550 },
+                    djelfa: { name: "17 - الجلفة", cost: 500 },
+                    mascara: { name: "29 - معسكر", cost: 500 },
+                    setif: { name: "19 - سطيف", cost: 450 },
+                    ouled_djellal: { name: "61 - أولاد جلال (مستحدثة)", cost: 550 },
+                    touggourt: { name: "65 - تقرت (مستحدثة)", cost: 600 },
+                    djanet: { name: "66 - جانت (حدودية)", cost: 750 },
+                    bou_saada: { name: "69 - بوسعادة (مستحدثة جديدة)", cost: 500 }
                 },
                 updateShipping() {
-                    let selected = this.wilayas.main[this.formData.wilayaKey] || this.wilayas.others[this.formData.wilayaKey];
+                    let selected = this.wilayas[this.formData.wilayaKey];
                     if (selected) {
                         this.shippingCost = selected.cost;
                         this.totalCost = this.productPrice + this.shippingCost;
                     }
                 },
                 submitOrder() {
+                    if (!this.formData.name || !this.formData.phone || !this.formData.wilayaKey || !this.formData.address) {
+                        alert('يرجى ملء جميع الحقول المطلوبة.');
+                        return;
+                    }
                     alert(`تهانينا ${this.formData.name}!\nتم استلام طلبك لـ عسل هود الفاخر بنجاح.\nالمجموع الإجمالي الكلي للدفع عند الاستلام هو: ${this.totalCost} دج.\nسيتصل بك موظف خدمة العملاء للتأكيد فوراً.`);
                 }
             }
